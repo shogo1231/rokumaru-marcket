@@ -1,0 +1,118 @@
+<header class="header">
+  <!-- タイトル画像 -->
+  <div class="title">
+    <img src= "../../customer/static/public/images/yaoya.png">
+  </div>
+
+  <!-- 検索 -->
+  <div class="search">
+    <span>
+    <% if (!search) { %>
+      <input type="text" class="searchBox" name="searchBox">
+    <% } else { %>
+      <input type="text" class="searchBox" name="searchBox" value="<%= search %>">
+    <% } %>
+    </span>
+    <span>
+      <input type="button" class="searchBtn" name="searchBtn" value="検索">
+    </span>
+  </div>
+
+  <!-- 🍔メニュー -->
+  <div class="nav-wrapper hidden">
+    <nav class="header-nav">
+      <ul class="menu-nav">
+        <li>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <div >
+                <a href="shop_list" class="white left">カートの中身</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="wishList white">
+                ほしいものリスト
+              </div>    
+            </li>
+            <li class="nav-item">
+              <% if(member) { %>
+                <div class="userEdit white">
+                  ユーザ情報編集
+                </div>
+                <% } %>
+            </li>
+            <li class="nav-item">
+              <% if(!member) { %>
+                <a  href="./login" class="white">
+                  <div>
+                    <div>会員ログイン</div>
+                  </div>
+                </a>
+              <% } else { %>
+                <a  href="./logout" class="white">
+                  <div>
+                    <div>ログアウト</div>
+                  </div>
+                </a>
+              <% } %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <!-- 🍔ボタン -->
+  <div class="burger-btn hidden">
+    <span class="bar bar_top"></span>
+    <span class="bar bar_mid"></span>
+    <span class="bar bar_bottom"></span>
+  </div>
+
+  <!-- デフォルトメニュー -->
+  <div class="login hidden">
+    <div class="inline-menu">
+      <ul class="menu">
+        <li class="top-menu">メニュー
+          <ul class="menuSub">
+            <li>
+              <div>
+                <a href="shop_list" class="white">カートの中身を見る</a>
+              </div>
+            </li>
+            <li>
+              <div class="wishList">
+                ほしいものリストを見る
+              </div>
+            </li>
+            <li>
+              <% if(member) { %>
+                <div class="userEdit">
+                  ユーザ情報編集
+                </div>
+                <% } %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="inline">
+    <% if(!member) { %>
+      <a  href="./login" class="white">
+        <div>
+          <div>ようこそゲスト様</div>
+          <div>会員ログイン</div>
+        </div>
+      </a>
+    <% } else { %>
+      <a  href="./logout" class="white">
+        <div>
+          <div>ようこそ<%= member %>様</div>
+          <div>ログアウト</div>
+        </div>
+      </a>
+    <% } %>
+    </div>
+  </div>
+</header>
+
+<div id="fadeLayer"></div>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+  <title><%= title %></title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<link rel = 'stylesheet' type = 'text/css' href = '/static/public/staff.css' />
+</head>
+<body>
+  スタッフチェック<br />
+  <form action = "./staff_edit_done" method = 'post'>
+    <input type="hidden" name="code" value="<%= data.code %>">
+  <% if (data.name === 'スタッフ名が入力されていません。') { %>
+    <p>スタッフ名:スタッフ名が入力されていません。</p>
+  <% } else { %>
+    <p>スタッフ名:<%= data.name%></p>
+    <input type = 'text' name = 'name' style = "width:100px" value = '<%= data.name%>' hidden><br />
+  <% } %>
+
+  <% if (data.pass === '') { %>
+    <p>パスワードが入力されていません。</p>
+  <% } else if (data.pass2 === 'not equall') { %>
+    <p>パスワードが一致しません。</p>
+  <% } else { %>
+    パスワード<br />
+    <input type = 'password' id = 'pass' name = 'pass' style = "width:100px" value = '<%= data.pass%>'><br />
+    <label><input type = 'checkbox' class = 'pass-check'>パスワードを表示</label>
+  <% } %>
+
+  <br />
+    <input type = 'button' id = 'back' value = '戻る'>
+    <% if (data.name !== 'スタッフ名が入力されていません。' && data.pass !== '' && data.pass2 !== 'not equall') { %>
+    <input type = 'submit' value = 'OK'>
+    <% } %>
+  </form>
+	<script type="text/javascript" src = '/static/protected/staff_check.js'></script>
+</body>
+</html>

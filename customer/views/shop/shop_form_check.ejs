@@ -1,0 +1,104 @@
+<% let syoukei = 0 %>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%- include('common/common_head') %>
+  <link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/shop_check.css' />
+</head>
+<body>
+  <div class="logo">
+    <img src= "../../customer/static/public/images/yaoya.png %>">
+  </div>
+  <h2>
+    注文内容を確認する
+  </h2>
+  <% if(rows.length === 0) { %>
+    <div>購入確認できる商品情報が一つもありません。</div>
+    <input type="button" id="top" name="top" value="トップに戻る">
+  <% } else { %>
+  <div id="wrapper">
+    <section class="main">
+      <h3>お届け先情報</h3>
+      <div class="Border">
+        <form>
+          お名前:<%= data.name %><br />
+          メールアドレス:<%= data.mail %><br />
+          郵便番号:<%= data.postal1 %>-<%= data.postal2 %><br />
+          住所:<%= data.address %><br />
+          電話番号:<%= data.tel %><br />
+      
+        <% if(data.chumon === 'chumonkonkai') { %>     
+          性別:<%= data.danjo %><br />
+          生まれ年:<%= data.birth %><br>
+          <input type="hidden" name="chumon" value="<%= data.chumon %>">
+          <input type="hidden" name="danjo" value="<%= data.danjo %>">
+          <input type="hidden" name="birth" value="<%= data.birth %>">
+        <% } %> 
+
+          <input type="hidden" name="name" value="<%= data.name %>">
+          <input type="hidden" name="mail" value="<%= data.mail %>">
+          <input type="hidden" name="postal1" value="<%= data.postal1 %>">
+          <input type="hidden" name="postal2" value="<%= data.postal2 %>">
+          <input type="hidden" name="address" value="<%= data.address %>">
+          <input type="hidden" name="tel" value="<%= data.tel %>">
+        </form>
+      </div>
+
+      <h3>お届け予定商品情報</h3>
+        <div class="Border">
+          <div>
+            お届け日：<%= date.year %>年<%= date.month %>月<%= date.day %>日
+          </div>
+          <% for (let i=0; i < rows.length; i++) { %>
+            <div class="productList">
+              <div class="syousai">
+                <% if(rows[i].gazou === "") { %>
+                  <img src= "../../customer/static/public/images/no image.png">
+                <% } else {%>
+                  <img src= "../../customer/static/public/images/<%= rows[i].gazou %>">
+                <% } %>
+              </div>
+              <div class="syousaiList left">
+                <div>
+                  商品名：<%= rows[i].name %>
+                </div>
+                <div>
+                  価格：<%= rows[i].price %>
+                </div>
+                <div>
+                  数量：<%= kazu[i] %>
+                </div>
+                <div>
+                  小計：<%= rows[i].price * kazu[i]%>円
+                  <div hidden><%= syoukei +=  rows[i].price * kazu[i]%></div>
+                </div>
+              </div>
+            </div>
+            <% }; %>
+        </div>
+    </section>
+    <section class="side">
+      <div class="Border">
+        <button type="button" id="order" class="order">注文を確定する</button>
+        <div style="font-weight: bold" >
+          注文内容
+        </div>
+        <div class="totalList">
+          <div>
+            商品の小計：<%= syoukei %>円
+          </div>
+          <div>
+            配送料・手数料：300円
+          </div>
+        </div>
+        <div class="total">
+          ご請求金額：<%= syoukei +300%>円
+        </div>
+      </div>
+    </section>
+  </div>
+  <% } %>
+  <script type="text/javascript" src = '/customer/static/protected/shop_form_check.js'></script>
+</body>
+</html>

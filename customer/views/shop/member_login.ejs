@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <%- include('common/common_head') %>
+    <link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/shop.css' />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="center">
+        <div class="logo">
+          <img src= "../../customer/static/public/images/yaoya.png %>">
+        </div>
+        <% if(token !== "") { %>
+          <span>メールアドレスまたはパスワードが間違っています。</span>
+        <% } %>
+        <div class="loginBorder">
+          <div class="center">
+            <h3>ログイン</h3>
+            <form>
+              <label for="mailAddres" class="block ">メールアドレス</label>
+              <input id="mailAddres" type="text" name="address" class="inputArea" value="<%= address %>">
+              パスワード<br />
+              <input type="password" name="pass" class="inputArea">
+              <input type="button" class="submit" value="ログオン" >
+            </form> 
+          </div>
+        </div>
+        <div>
+          <div>
+            ------このサイトは初めてですか？------
+          </div>
+          <div>
+            <!-- <input type="button" id="newAccount" value="アカウント作成"> -->
+            <button type="button" onclick="location.href='/newAccount'">アカウント作成</button>
+          </div>
+        </div>
+      </div>
+
+<!-- footer -->
+      <footer>
+        <%- include('footer') %>
+      </footer>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src = '/customer/static/protected/login.js'></script>
+  
+  </body>
+</html>

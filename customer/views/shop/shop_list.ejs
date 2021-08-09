@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%- include('common/common_head') %>
+	<link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/shop.css' />
+  <link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/header.css' />
+</head>
+<body>
+  <div id="wrapper">
+    <!-- header -->
+    <%- include('header') %>
+
+    <div class="cartLink">
+      <a href="/shop_clear">カートを空にする</a><br />
+    </div>
+
+<% if(rows.length !== 0) { %>
+  <div class="center">
+    <span class="sakuzyoProduct"></span>
+
+    <div>
+      ショッピングカート
+    </div>
+
+    <% for (let i=0; i < rows.length; i++) { %>
+    <div class="productList">
+      <div class="syousaiDelete">
+        <div>
+          <input type="checkbox" name="sakuzyo">
+        </div>
+      </div>
+      <div class="syousai">
+        <% if(rows[i].gazou === "") { %>
+          <img src= "../../customer/static/public/images/no image.png">
+        <% } else {%>
+          <img src= "../../customer/static/public/images/<%= rows[i].gazou %>">
+        <% } %>
+      </div>
+      <div class="syousaiList left">
+        <div>
+          商品名：<%= rows[i].name %>
+        </div>
+        <div>
+          価格：<%= rows[i].price %>
+        </div>
+        <div>
+          数量：<input type="text"  class="kazu" name="kazu" value="<%= kazu[i] %>">
+        </div>
+        <div>
+          小計：<%= rows[i].price * kazu[i]%>円
+        </div>
+        <div>
+          <button id="sakuzyo" class="sakuzyo">削除</button>
+        </div>
+      </div>
+    </div>
+    <% }; %>
+
+    <!-- <input type="button" id="changeKazu" value="数量変更"><br /> -->
+    <!-- <input type="button" id="sakuzyo" value="チェックした商品をカートの外へ"><br /> -->
+    <% if (!member) { %>
+    <a href="/shop_form">ご購入手続きへ進む</a>
+    <% } else { %>
+    <a href="/shop_kantan_check">会員簡単注文はこちら</a>
+    <% } %>
+  </div>
+
+<% } else { %>
+  <span>カートに商品が入っていません。</span>
+  <a href="/">商品一覧に戻る</a>
+  <% } %>
+
+    <!-- footer -->
+    <footer>
+      <%- include('footer') %>
+    </footer>
+  </div>
+  
+  <script type="text/javascript" src = '/customer/static/protected/header.js'></script>
+	<!-- <script type="text/javascript" src = '/customer/static/protected/product.js'></script> -->
+	<script type="module" src = '/customer/static/protected/shop_list.js'></script>
+  <!-- <script type="module" src = '/customer/static/protected/common/changeKazu.js'></script> -->
+
+</body>
+</html>

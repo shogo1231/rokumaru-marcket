@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <%- include('common/common_head') %>
+    <link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/new_account.css' />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="center">
+        <div class="logo">
+          <img src= "../../customer/static/public/images/yaoya.png %>">
+        </div>
+        <div class="Border">
+          <div class="center">
+            <h3>アカウントを作成</h3>
+            <form>
+              <label for="name" class="block ">お名前</label>
+              <input type="text" id="name" name="name" class="inputArea form-text">
+              <span></span>
+
+              <label for="mail" class="block ">メールアドレス</label>
+              <input type="text" id="mail" name="mail" class="inputArea form-text">
+              <span></span>
+
+              <label for="postal1" class="block ">郵便番号</label>
+              <div class="inputArea">
+                <input type="text" id="postal1" name="postal1" class="form-text" style="width: 50px"> － 
+                <input type="text" id="postal2" name="postal2" class="form-text" style="width: 80px">
+                <span name="postal"></span>
+              </div>
+              
+
+              <label for="address" class="block ">住所</label>
+              <input type="text" id="address" name="address" class="inputArea form-text">
+              <span></span>
+
+              <label for="tel" class="block ">電話番号(ハイフン不要)</label>
+              <input type="text" id="tel" name="tel" class="inputArea form-text">
+              <span></span>
+
+              <label for="pass" class="block ">パスワード</label>
+              <input type="password" id="pass" name="pass" class="inputArea form-text">
+              <span></span>
+
+              <label for="pass2" class="block ">パスワードを再度入力してください。</label>
+              <input type="password" id="pass2" name="pass2" class="inputArea form-text">
+              <span></span>
+
+              <label for="sex" class="block ">性別</label>
+              <div>
+                <label>
+                  <input type="radio" id="sex" name="danjo" value="dan" checked>男性
+                </label>
+              </div>
+              <div>
+                <label>
+                  <input type="radio" name="danjo" value="jo">女性
+                </label>
+              </div>
+          
+              <label for="birth" class="block ">生まれ年</label>
+              <div>
+                <select id="birth" name="birth">
+                  <% for(let i=1950; i < 2030; i += 10 ) { %>
+                    <option value="<%= i %>"><%= i %>年代</option>
+                  <% } %>
+                </select>
+              </div>
+         
+              <button type="button" class="register" name="register" value="アカウント作成" disabled>アカウント作成</button>
+            </form> 
+          </div>
+        </div>
+      </div>
+
+<!-- footer -->
+      <footer>
+        <%- include('footer') %>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src = '/customer/static/protected/new_account.js'></script>
+  
+  </body>
+</html>

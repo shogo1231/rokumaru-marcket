@@ -1,0 +1,5 @@
+{
+  "debug.allowBreakpointsEverywhere": true,
+  "editor.glyphMargin": true
+  // "debug.javascript.autoAttachFilter": "always"
+}

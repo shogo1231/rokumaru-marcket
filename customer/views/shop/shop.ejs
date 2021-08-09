@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%- include('common/common_head') %>
+  <link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/shop.css' />
+  <link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/header.css' />
+</head>
+<body>
+  <div id="wrapper">
+    <!-- header -->
+    <%- include('header') %>
+
+    <!-- 本文 -->
+    <div class="maincontent">
+    <% if(rows) { %>
+      <% rows.forEach( (row) => { %>
+        <div class="productList">
+          <div class="syousai">
+          <% if(row.gazou === "") { %>
+            <img src= "../../customer/static/public/images/no image.png" class="img" name="<%= row.code %>">
+          <% } else {%>
+            <img src= "../../customer/static/public/images/<%= row.gazou %>" class="img" name="<%= row.code %>">
+          <% } %>
+          </div>
+          <div class="syousai syousaisyouhin">
+            <a href="./shop_product?code=<%= row.code %>">
+              <div><%= row.name %></div>
+              <div><%= row.price %>円</div>
+            </a>
+          </div>
+        </div>
+        <% }); %>
+    <% } %>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <%- include('footer') %>
+    </footer>
+  </div>
+
+  <!-- script -->
+  <script type="text/javascript" src = '/customer/static/protected/header.js'></script>
+  <script type="text/javascript" src = '/customer/static/protected/shop.js'></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%- include('common/common_head') %>
+  <link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/shop.css' />
+  <link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/header.css' />
+</head>
+<body>
+  <div id="wrapper">
+    <!-- header -->
+    <%- include('header') %>
+
+    <div class="maincontent">
+      <div class="center">
+        <div>
+          <% if (!data[0].gazou) { %>
+            <img src= "../../customer/static/public/images/no image.png">
+          <% } else { %>
+            <img src= "../../customer/static/public/images/<%= data[0].gazou %>">
+          <% } %>
+        </div>
+        <div>
+          <%= data[0].name %>をカートに追加しました。
+        </div>
+        <div>
+          追加商品の金額：<%= data[0].price %>円
+        </div>
+        <div>
+          カートの小計：<%= price %>円
+        </div>
+        <div>
+          <a href="shop_list" >カートの中身を見る</a>
+        </div>
+        <div>
+          <a href="shop_form" >購入手続きはこちら</a>
+        </div>
+        <div>
+          <a href="/">一覧に戻る。</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <%- include('footer') %>
+    </footer>
+  </div>
+  
+  <script type="text/javascript" src = '/customer/static/protected/header.js'></script>
+	<script type="text/javascript" src = '/customer/static/protected/shop_cartin.js'></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+/**********************************
+ヘッダ用
+***********************************/
+header {
+  height: 50px;
+  background-color: #1f215f;
+  margin-bottom: 30px;
+  display: flex;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 9999;
+  min-width: 570px
+}
+
+.title {
+/* display: inline-block; */
+position: absolute;
+left: 0px;
+cursor: pointer;
+/* top: -5px; */
+}
+
+.search {
+/* display: inline-block; */
+position: absolute;
+width: 50%;
+top: 0;
+left: 60%;
+transform: translateX(-50%);
+-webkit-transform: translateX(-50%);
+font-size:0;
+/* -ms-transform: translateX(-50%); */
+}
+
+.searchBox {
+  font-size:15px;
+  position:relative;/*フォームの相対位置*/
+  /* left:25%; ここを調整する */
+  top:5px; 	
+  outline:0;/*クリック時の青い枠線消す*/	
+  height:40px;/*検索ボックスの高さ*/	
+  padding:0 10px;/*テキスト位置調整*/
+  border: 1px;
+  border-radius:2px 0 0 2px;/*検索ボックスの角を丸める*/		
+  background:#eee;/*検索ボックスの背景カラー*/
+}
+
+.searchBtn {
+  width:70px;/*検索ボタンの横幅*/ 
+  height:40px;/*検索ボタンの縦幅*/ 
+  position:relative;/*検索ボタンの絶対位置*/
+  /* left:150px;検索ボタンの位置調整 ここを調整する */
+  top:4px; 
+  border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/ 
+  background:#7fbfff;/*検索ボタンの背景カラー*/ 
+  border:none;/*検索ボタンの枠線を消す*/ 
+  color:#fff;/*検索ボタンのテキストカラー*/ 
+  font-weight:bold;/*検索ボタンのテキスト太字*/ 
+  font-size:16px;/*検索ボタンのフォントサイズ*/
+  cursor: pointer;
+}
+
+.searchBtn:hover {
+  color:#888;
+}
+
+.login {
+  /* display: inline-block; */
+  color: white;
+  position: absolute;
+  right: 0px;
+  height: 50px;
+  /* text-align: right; */
+  /* margin-right: auto; */
+}
+
+.inline {
+  display: inline-block;
+  position: relative;
+}
+
+.inline-menu {
+  display: inline-block;
+  position: relative;
+  bottom: 20px;
+}
+
+.burger-btn{
+  /* display: none;       */
+  width: 39px;      
+  height: 39px;      
+  position: absolute;      
+  border:none;  
+  right: 0;
+  /* transform: translateX(100%); */
+  
+}    
+.bar{      
+  width: 20px;      
+  height: 1px;        
+  display: block;      
+  position: absolute;      
+  left: 50%;      
+  transform: translateX(-50%);      
+  background-color: #fff;    
+}    
+.bar_top{   
+  top: 10px;
+}
+.bar_mid{    
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.bar_bottom{
+  bottom: 10px;
+}
+
+.burger-btn.close .bar_top{
+  transform: translate(-50%,10px) rotate(45deg);
+  transition: transform .3s;
+}
+.burger-btn.close .bar_mid{    
+  opacity: 0; 
+  transition: opacity .3s;
+}
+.burger-btn.close .bar_bottom{
+transform: translate(-50%,-8px) rotate(-45deg);
+transition: transform .3s;
+}
+
+/* 🍔のなかみ*/
+.nav-wrapper{      
+  /* display: none; */
+  transform: translateX(100%);      
+  transition: .3s;     
+  width: 20%;   
+  min-width: 150px;        
+  height: 100vh;      
+  position: fixed;      
+  top: 34px;      
+  right: 0;       
+  z-index: 2;     
+}     
+.header-nav{        
+  width: 100%;
+  height: 100%;        
+  background-color:#8eb4a2;        
+  z-index: 2;
+}     
+.nav-list{        
+  display: block;        
+  position: absolute;        
+  right: 0%;        
+  text-align: left;
+  padding-left: 0px;
+}      
+.nav-item{        
+  margin-right: 0;        
+  margin-bottom: 10px;
+  color: white;   
+}
+.nav-wrapper.slide-in{      
+  transform: translateX(0);      
+  /* transition: .3s;      */
+}
+
+.hidden {
+  display: none;
+}
+
+.menu-nav li {
+  list-style: none;
+}
+
+
+/**********************************
+ドロップダウンメニュー用
+***********************************/
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  list-style-type: none;
+  color: #fff;
+  padding: 0;
+}
+
+.menu li {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  margin-left: 1px;
+  padding: 5px;
+  list-style-type: none;
+}
+
+.addtest{
+  border: 1px solid;
+}
+
+.menuSub {
+  position: relative;
+  margin-left: -6px;
+  padding: 0;
+  display: none;
+  background: #444444;
+  top: 20px;
+  border: none;
+
+}
+
+/*.openが付与された時、表示の設定*/
+.menuSub.open {
+  display: block;
+}
+
+.white {
+  color: white;
+}
+
+/**********************************
+メニューホバー用
+***********************************/
+#fadeLayer {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  background-color:#000000;
+  opacity:0.5;
+  visibility:hidden;
+  z-index:1;
+}

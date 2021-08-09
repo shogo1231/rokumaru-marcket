@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+  <title><%= title %></title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<link rel = 'stylesheet' type = 'text/css' href = '/static/public/staff.css' />
+</head>
+<body>
+  <% if(data.length === 0) { %>
+    商品が選択されていません。
+  <% } else { %>
+    商品情報参照<br />
+    <br />
+    商品コード:<%= data[0].code %><br />
+    商品名:<%= data[0].name %><br />
+    価格:<%= data[0].price %><br />
+    <img src="/store/static/public/images/<%= data[0].gazou %>">
+
+  <% } %>
+	<script type="text/javascript" src = '/store/static/protected/staff_check.js'></script>
+</body>
+</html>

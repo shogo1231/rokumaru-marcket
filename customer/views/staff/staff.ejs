@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+  <title><%= title %></title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<link rel = 'stylesheet' type = 'text/css' href = '/static/public/staff.css' />
+</head>
+<body>
+  スタッフ追加<br />
+  <form  method = 'post'>
+    スタッフ名を入力してください。<br />
+    <input type = 'text' name = 'name' style = "width:200px"><br />
+    パスワードを入力してください。<br />
+    <input type = 'password' name = 'pass' style = "width:100px"><br />
+    パスワードをもう一度入力してください。<br />
+    <input type = 'password' name = 'pass2' style = "width:100px"><br />
+    <br />
+    <input type = 'button' id = 'back' value = '戻る'>
+    <input type = 'submit' value = 'OK'>
+    <input type = "button" id="button" value="ボタン作成">
+
+  </form>
+  <div class = add></div>
+	<script type="text/javascript" src = '/static/protected/staff.js'></script>
+</body>
+</html>

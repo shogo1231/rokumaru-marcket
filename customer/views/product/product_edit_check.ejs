@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+  <title><%= title %></title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<link rel = 'stylesheet' type = 'text/css' href = '/static/public/staff.css' />
+</head>
+<body>
+  商品チェック<br />
+  <form action = "./product_edit_done" method = 'post'>
+    <input type="hidden" name="code" value="<%= data.code %>">
+    <input type="hidden" name="gazou" value="<%= data.gazou_old %>">
+  <% if (data.name === '商品名が入力されていません。') { %>
+    <p>商品名:商品名が入力されていません。</p>
+  <% } else { %>
+    <p>商品名:<%= data.name%></p>
+    <input type = 'text' name = 'name' style = "width:100px" value = '<%= data.name%>' hidden><br />
+  <% } %>
+
+  <% if (data.price === '') { %>
+    <p>価格が入力されていません。</p>
+  <% } else if (data.price === 'husei') { %>
+    <p>価格を正しく入力してください。</p>
+  <% } else { %>
+    価格：<%= data.price%>円<br />
+    <input type = 'text' id = 'price' name = 'price' style = "width:100px" value = '<%= data.price%>' hidden><br />
+  <% } %>
+  <br />
+
+  <!-- <img src="/static/public/images/<%= fileName %>"><br /> -->
+  <img src="/static/public/images/<%= fileName %>"><br />
+  <input type="hidden" name="gazou_name" value="<%= fileName %>" >
+
+
+    <input type = 'button' id = 'back' value = '戻る'>
+    <% if (data.name !== 'スタッフ名が入力されていません。' && data.price !== ''&& data.price !== 'husei') { %>
+    <input type = 'submit' value = 'OK'>
+    <% } %>
+  </form>
+	<script type="text/javascript" src = '/static/protected/staff_check.js'></script>
+</body>
+</html>

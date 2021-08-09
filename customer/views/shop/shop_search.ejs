@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%- include('common/common_head') %>
+  <link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/shop.css' />
+  <link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/header.css' />
+</head>
+<body>
+  <div id="wrapper">
+    <!-- header -->
+    <%- include('header') %>
+
+    <div class="cartLink">
+      <a href="shop_list" >カートの中身を見る</a>
+    </div>
+
+    <!-- 本文 -->
+  <% if(result.length !== 0) { %>
+    <div>
+      検索結果
+    </div>
+    <% result.forEach( (row) => { %>
+      <div class="productList">
+        <div class="syousai">
+        <% if(row.gazou === "") { %>
+          <img src= "../../customer/static/public/images/no image.png" class="img" name="<%= row.code %>">
+        <% } else {%>
+          <img src= "../../customer/static/public/images/<%= row.gazou %>" class="img" name="<%= row.code %>">
+        <% } %>
+        </div>
+        <div class="syousai syousaisyouhin">
+          <a href="./shop_product?code=<%= row.code %>">
+            <div><%= row.name %></div>
+            <div><%= row.price %>円</div>
+          </a>
+        </div>
+      </div>
+      <% }); %>
+  <% } else { %>
+    <div>
+      お探しの商品は見つかりませんでした。
+    </div>
+  <% } %>
+    
+
+    <!-- footer -->
+    <footer>
+      <%- include('footer') %>
+    </footer>
+  </div>
+
+  <!-- script -->
+  <script type="text/javascript" src = '/customer/static/protected/header.js'></script>
+  <script type="text/javascript" src = '/customer/static/protected/shop.js'></script>
+</body>
+</html>

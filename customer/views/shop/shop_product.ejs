@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%- include('common/common_head') %>
+	<link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/shop_product.css' />
+  <link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/header.css' />
+</head>
+<body>
+  <div id="wrapper">
+    <!-- header -->
+    <%- include('header') %>
+
+    <div class="addSelect">
+      <span class="cartLink">
+        カートに入れる
+      </span>
+      <span class="addWishList">
+        ほしいものリストに追加
+      </span>
+    </div>
+
+    <% if (status === 'success') { %>
+      ほしいものリストに追加しました
+    <% } else if (status === 'fail') { %>
+      すでにほしいものリストに存在しています
+    <% } %>
+
+    <!-- 本文 -->
+    <div class='productList'>
+      <div class='syousaiGazou'>
+        <div class="images">
+          <div class="m-lens-container">
+          <% if (!data[0].gazou) { %>
+            <img src= "../../customer/static/public/images/no image.png">
+          <% } else { %>
+            <img src= "../../customer/static/public/images/<%= data[0].gazou %>">
+          <% } %>
+            <div class="m-lens"></div>
+          </div>
+          <div class="zoom-area">
+            <img src="" />
+          </div>
+        </div>
+        <% if (data[0].gazou) { %>
+          <li>
+          <% gazouData.forEach((data) => { %>
+            <img src= "../../customer/static/public/images/<%= data %>">
+          <% }); %>
+          </li>
+        <% } %>
+
+      </div>
+      <div class='overview'>
+        <div>
+          商品コード:<%= data[0].code %>
+        </div>
+        <div>
+          商品名:<%= data[0].name %>
+        </div>
+        <div>
+          価格:<%= data[0].price %>円
+        </div>
+      </div>
+    </div>
+    <div class='productList'>
+      商品の説明
+    </div>
+    <div class='productList'>
+      口コミ一覧
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <%- include('footer') %>
+    </footer>
+  </div>
+  
+<input type='hidden' id='code' name='code' value='<%= data[0].code %>'>
+<input type='hidden' id='name' name='name' value='<%= data[0].name %>'>
+
+  <!-- script -->
+  <script type="text/javascript" src = '/customer/static/protected/header.js'></script>
+	<script type="text/javascript" src = '/customer/static/protected/product.js'></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+  <title><%= title %></title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<link rel = 'stylesheet' type = 'text/css' href = '/static/public/staff.css' />
+</head>
+<body>
+ダウンロードしたい注文日を選んでください。<br />
+<form method="post" action="order_download_done">
+  <select name="year">
+    <% for(let i= 2000; i < 2022; i++) { %>
+      <option value="<%= i %>"><%= i %></option>
+    <% } %>
+  </select>年
+  <select name="month">
+    <% for(let j= 1; j < 13; j++) { %>
+      <option value="<%= j %>"><%= j %></option>
+    <% } %>
+  </select>月
+  <select name="day">
+    <% for(let k= 1; k < 32; k++) { %>
+      <option value="<%= k %>"><%= k %></option>
+    <% } %>
+  </select>日<br />
+  <input type="submit" value="ダウンロードへ">
+</form>
+	<script type="text/javascript" src = '/static/protected/staff.js'></script>
+</body>
+</html>

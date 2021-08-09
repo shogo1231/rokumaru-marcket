@@ -1,0 +1,28 @@
+#sample3 li {
+  position:relative;
+}
+/* #sample3 li:hover {
+  background: #aa2222;
+} */
+.sample3-tooltips {
+  position: absolute;
+  bottom: -30px;
+  left: 20px;
+  z-index: 1;
+  padding: 0.3em 0.5em;
+  color: #000000;
+  background: #ffffff;
+  border: solid;
+  border-width: 1px;;
+  /* border-radius: 0.5em; */
+}
+/* .sample3-tooltips:after {
+  width: 100%;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0.5em;
+  top: -8px;
+  border-top:8px solid transparent;
+  border-left:8px solid #c72439;
+} */

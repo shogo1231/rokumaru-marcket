@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+  <title><%= title %></title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<link rel = 'stylesheet' type = 'text/css' href = '/static/public/staff.css' />
+</head>
+<body>
+  <% if(data.length === 0) { %>
+    スタッフが選択されていません。
+  <% } else { %>
+    スタッフ情報参照<br />
+    <br />
+    スタッフコード:<%= data[0].code %><br />
+      スタッフ名:<%= data[0].name %><br />
+      パスワード:<%= data[0].pass %><br />
+
+  <% } %>
+	<script type="text/javascript" src = '/static/protected/staff_check.js'></script>
+</body>
+</html>

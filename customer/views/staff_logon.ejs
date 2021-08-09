@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <!-- <link rel="stylesheet" href="/public/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="/public/css/index.css" /> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="/public/bootstrap/bootstrap.js"></script> -->
+    <!-- <script type="text/javascript" src="/public/js/index.js"></script> -->
+  </head>
+  <body>
+    スタッフログイン<br /><br />
+    <form method="POST" action="staff_login_check">
+      スタッフコード<br />
+      <input type="text" name="code"><br />
+      パスワード<br />
+      <input type="password" name="pass">
+      <input type="submit" value="ログオン">
+    </form>
+  </body>
+</html>

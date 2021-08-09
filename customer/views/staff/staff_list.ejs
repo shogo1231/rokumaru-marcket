@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+  <title><%= title %></title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<link rel = 'stylesheet' type = 'text/css' href = '/static/public/staff.css' />
+</head>
+<body>
+  スタッフ一覧<br />
+<% if(rows) { %>
+  <form method="post" action="./list/staff_edit">
+  <% rows.forEach( (row) => { %>
+    <label><input type="radio" name="staffcode" value="<%= row.code %>"><%= row.name %></p></label>
+  <% }); %>
+  <input type="submit" value="修正">
+  <input type="button" id="deleteBtn" value="削除">
+  <input type="button" id="addBtn" onclick="location.href='./staff'" value="追加">
+  <input type="button" id="refBtn" value="参照">
+  </form>
+<% } %>
+
+	<script type="text/javascript" src = '/static/protected/staff.js'></script>
+</body>
+</html>

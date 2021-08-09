@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%- include('common/common_head') %>
+  <link rel = 'stylesheet' type = 'text/css' href = '/customer/static/public/shop_form.css' />
+</head>
+<body>
+  <div class="logo">
+    <img src= "../../customer/static/public/images/yaoya.png %>">
+  </div>
+  <div class="afterBuyBorder">
+    <%= data.name %>様<br />
+    ご注文ありがとうございます。<br />
+    <%= data.name %>様のメールアドレスに注文内容のメールをお送りしました。<br />
+    またのご利用をお待ちしております。<br />
+    <% if(data.chumon === 'chumonkonkai') { %>
+      会員登録が完了しました。<br />
+    <% } %>
+    <button type="button" id="top" class="topButton">トップに戻る</button>
+  </div>
+	<script type="text/javascript" src = '/customer/static/protected/shop_form_done.js'></script>
+</body>
+</html>
