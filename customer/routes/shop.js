@@ -446,11 +446,11 @@ router.post('/member_login_check', async function(req, res) {
 
   // DB接続
   let connection = mysql.createPool({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
 
   // connection.connect(); ここ不要
@@ -541,13 +541,13 @@ router.get('/shop_kantan_check', async function(req, res) {
 
     // DB接続
     let connection = mysql.createPool({
-      host : 'localhost',
-      user : 'root',
-      password : '',
+      host : 'us-cdbr-east-04.cleardb.com',
+      user : 'b24afcead44e01',
+      password : 'c4a2d0d1',
       port : 3306,
-      database : 'shop'
+      database : 'heroku_7464a44833ab4f0'
     });
-      
+        
     // connection.connect(); ここ不要
     // この行がポイント！ queryが非同期だからここの処理が完了するまでreturnに進まないようにしている？
     connection.query = util.promisify(connection.query)
