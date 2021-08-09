@@ -52,11 +52,11 @@ module.exports.ref = async function(req, res, code){
 
   // DB接続
   let connection = mysql.createPool({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
     
   // connection.connect(); ここ不要
@@ -100,12 +100,12 @@ module.exports.product = async function(req, res){
   };
 
   // DB接続
-  let connection = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+  let connection = mysql.createPool({
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
   
   connection.connect();
@@ -136,13 +136,13 @@ module.exports.update = function(req, res){
   };
 
   // DB接続
-  let connection = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+  let connection = mysql.createPool({
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
-    });
+    database : 'heroku_7464a44833ab4f0'
+  });
     
     connection.connect();
     
@@ -162,13 +162,13 @@ module.exports.deleteData = function (req, res) {
   let code = req.body.code;
   let a;
   let connection = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
-    });
-    
+    database : 'heroku_7464a44833ab4f0'
+  });
+      
   // この行がポイント！ queryが非同期だからここの処理が完了するまでreturnに進まないようにしている？
   connection.query = util.promisify(connection.query)
 
@@ -193,15 +193,15 @@ module.exports.deleteData = function (req, res) {
 module.exports.getProductData = async function (req, res) {
   let a;
   // DB接続
-  // let connection = mysql.createPool({
-  //   host : 'us-cdbr-east-04.cleardb.com',
-  //   user : 'b24afcead44e01',
-  //   password : 'c4a2d0d1',
-  //   port : 3306,
-  //   database : 'heroku_7464a44833ab4f0'
-  // });
-  let test = require('./database.js');
-  let connection = mysql.createPool({ test });
+  let connection = mysql.createPool({
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
+    port : 3306,
+    database : 'heroku_7464a44833ab4f0'
+  });
+  // let test = require('./database.js');
+  // let connection = await mysql.createPool({ test });
 
   // let connection = require('./database');
 
@@ -237,11 +237,11 @@ module.exports.getProductOneData = async function(req,res) {
   let a;
   // DB接続
   let connection = mysql.createPool({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
     
   // connection.connect(); ここ不要
@@ -284,11 +284,11 @@ module.exports.editSessionPrice = async function (req, res) {
   let kazu = req.session.kazu;
   // DB接続
   let connection = mysql.createPool({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
     
   // connection.connect(); ここ不要
@@ -322,11 +322,11 @@ module.exports.cartin = async function(req,res) {
 
   // DB接続
   let connection = mysql.createPool({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
     
   // connection.connect(); ここ不要
@@ -394,11 +394,11 @@ module.exports.delCartProduct = async function(req,res) {
 
   // DB接続
   let connection = mysql.createPool({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
     
   // connection.connect(); ここ不要
@@ -460,11 +460,11 @@ module.exports.getList = async function(req,res) {
   let a = [];
   // DB接続
   let connection = mysql.createPool({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
     
   // connection.connect(); ここ不要
@@ -571,12 +571,12 @@ module.exports.dat_sales = async function(req, res) {
   };
 
   // DB接続
-  let connection = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+  let connection = mysql.createPool({
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
 
   // connection.connect();
@@ -627,12 +627,12 @@ module.exports.dat_sales_product = async function(req, lastcode) {
   let code = req.session.cart;
   let res = [];
   // DB接続
-  let connection = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+  let connection = mysql.createPool({
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
 
   connection.query = util.promisify(connection.query)
@@ -700,13 +700,13 @@ module.exports.reset_cartin = async function(req, res) {
   // addData.name = member
 
   let connection = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
-
+  
   connection.query = util.promisify(connection.query)
   try {
       connection.query('UPDATE cart set ? WHERE memberCode = ?', [addData, req.session.code], (err) => {
@@ -736,12 +736,12 @@ module.exports.changeCartKazu = async function(req, res) {
     addData[col] = kazu;
   }
 
-  let connection = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+  let connection = mysql.createPool({
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
 
   connection.query = util.promisify(connection.query)
@@ -782,12 +782,12 @@ module.exports.dat_member = async function(req, res) {
   };
 
   // DB接続
-  let connection = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+  let connection = mysql.createPool({
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
 
   connection.query = util.promisify(connection.query);
@@ -817,11 +817,11 @@ module.exports.dat_search = async function(req,res) {
   let a;
   // DB接続
   let connection = mysql.createPool({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
     
   // connection.connect(); ここ不要
@@ -861,13 +861,13 @@ module.exports.getWishlistData =async function (req, res) {
 
     // DB接続
     let connection = mysql.createPool({
-      host : 'localhost',
-      user : 'root',
-      password : '',
+      host : 'us-cdbr-east-04.cleardb.com',
+      user : 'b24afcead44e01',
+      password : 'c4a2d0d1',
       port : 3306,
-      database : 'shop'
+      database : 'heroku_7464a44833ab4f0'
     });
-      
+        
     // connection.connect(); ここ不要
     // この行がポイント！ queryが非同期だからここの処理が完了するまでreturnに進まないようにしている？
     connection.query = util.promisify(connection.query)
@@ -908,11 +908,11 @@ module.exports.getUserData = async function(req, res) {
 
   // DB接続
   let connection = mysql.createPool({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
     
   // connection.connect(); ここ不要
@@ -963,12 +963,12 @@ module.exports.getUserData = async function(req, res) {
   let code = req.session.code;
 
   // DB接続
-  let connection = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+  let connection = mysql.createPool({
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
 
   connection.query = util.promisify(connection.query);
@@ -992,5 +992,3 @@ module.exports.getUserData = async function(req, res) {
   let result = 'ok';
   return result;
 };
-
-
