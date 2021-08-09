@@ -190,17 +190,21 @@ module.exports.deleteData = function (req, res) {
   return a;
 };
 
-module.exports.getProductData =async function (req, res) {
+module.exports.getProductData = async function (req, res) {
   let a;
   // DB接続
-  let connection = mysql.createPool({
-    host : 'us-cdbr-east-04.cleardb.com',
-    user : 'b24afcead44e01',
-    password : 'c4a2d0d1',
-    port : 3306,
-    database : 'heroku_7464a44833ab4f0'
-  });
-    
+  // let connection = mysql.createPool({
+  //   host : 'us-cdbr-east-04.cleardb.com',
+  //   user : 'b24afcead44e01',
+  //   password : 'c4a2d0d1',
+  //   port : 3306,
+  //   database : 'heroku_7464a44833ab4f0'
+  // });
+  let test = require('./database.js');
+  let connection = mysql.createPool({ test });
+
+  // let connection = require('./database');
+
   // connection.connect(); ここ不要
   // この行がポイント！ queryが非同期だからここの処理が完了するまでreturnに進まないようにしている？
   connection.query = util.promisify(connection.query)
