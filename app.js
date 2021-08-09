@@ -7,17 +7,17 @@ const port = process.argv[2];
 
 // テンプレートエンジンをEJSに設定
 // store,customerの様に複数プロジェクトがある場合は第2、第3引数にpathを記述
-if(port === "3001") {
+// if(port === "3001") {
   app.set('views', './customer/views');
   app.set('view engine', 'ejs');
-}
-else if( port === "3002") {
-  app.set('views', './store/views');
-  app.set('view engine', 'ejs');
-}
+// }
+// else if( port === "3002") {
+//   app.set('views', './store/views');
+//   app.set('view engine', 'ejs');
+// }
 
 // public配下の静的ファイルは無条件に公開
-app.use('/store/static', express.static(__dirname+'/store/static'));
+// app.use('/store/static', express.static(__dirname+'/store/static'));
 app.use('/customer/static', express.static(__dirname+'/customer/static'));
 
 // ミドルウエアの設定
@@ -38,6 +38,7 @@ app.use(express.json());
 
 // ルーティングの設定
 // app.use('/', require('./routes/index.js'));
+app.use('/', require('./customer/routes/shop.js'));
 app.use('/staff', require('./store/routes/staff.js'));
 app.use('/list', require('./store/routes/list.js'));
 app.use('/product', require('./store/routes/product.js'));
@@ -68,15 +69,15 @@ app.use('/order', require('./store/routes/order.js'));
 
 // HTTPサーバを起動する
 // 3001:販売サイト側　3002:商品設定側
-if(process.argv[2] === "3001") {
-  app.listen(port, () => {
-    app.use('/', require('./customer/routes/shop.js'));
-    console.log(`listening at http://localhost:${port}`);
-  });
-}
-else if (process.argv[2] === "3002") {
-  app.listen(port, () => {
-    app.use('/', require('./store/routes/logon.js'));
-    console.log(`listening at http://localhost:${port}`);
-  });
-}
+// if(process.argv[2] === "3001") {
+//   app.listen(port, () => {
+//     app.use('/', require('./customer/routes/shop.js'));
+//     console.log(`listening at http://localhost:${port}`);
+//   });
+// }
+// else if (process.argv[2] === "3002") {
+//   app.listen(port, () => {
+//     app.use('/', require('./store/routes/logon.js'));
+//     console.log(`listening at http://localhost:${port}`);
+//   });
+// }

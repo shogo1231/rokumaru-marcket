@@ -194,11 +194,11 @@ module.exports.getProductData =async function (req, res) {
   let a;
   // DB接続
   let connection = mysql.createPool({
-    host : 'localhost',
-    user : 'root',
-    password : '',
+    host : 'us-cdbr-east-04.cleardb.com',
+    user : 'b24afcead44e01',
+    password : 'c4a2d0d1',
     port : 3306,
-    database : 'shop'
+    database : 'heroku_7464a44833ab4f0'
   });
     
   // connection.connect(); ここ不要
