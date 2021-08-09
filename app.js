@@ -4,6 +4,7 @@ const session = require("express-session");
 const mysql = require('mysql');
 const app  = express();
 const port = process.argv[2];
+const PORT = process.env.PORT || 5000
 
 // テンプレートエンジンをEJSに設定
 // store,customerの様に複数プロジェクトがある場合は第2、第3引数にpathを記述
@@ -38,11 +39,16 @@ app.use(express.json());
 
 // ルーティングの設定
 // app.use('/', require('./routes/index.js'));
-app.use('/', require('./customer/routes/shop.js'));
+// app.use('/', require('./customer/routes/shop.js'));
 app.use('/staff', require('./store/routes/staff.js'));
 app.use('/list', require('./store/routes/list.js'));
 app.use('/product', require('./store/routes/product.js'));
 app.use('/order', require('./store/routes/order.js'));
+
+app.listen(PORT, () => {
+  app.use('/', require('./customer/routes/shop.js'));
+  console.log(`listening at http://localhost:${PORT}`);
+});
 
 // app.use('/about', require('./routes/about.js'));
 // app.use('/', require('./routes/'));
