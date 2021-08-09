@@ -40,14 +40,14 @@ app.use(express.json());
 // ルーティングの設定
 // app.use('/', require('./routes/index.js'));
 // app.use('/', require('./customer/routes/shop.js'));
-app.use('/staff', require('./store/routes/staff.js'));
-app.use('/list', require('./store/routes/list.js'));
-app.use('/product', require('./store/routes/product.js'));
-app.use('/order', require('./store/routes/order.js'));
+// app.use('/staff', require('./store/routes/staff.js'));
+// app.use('/list', require('./store/routes/list.js'));
+// app.use('/product', require('./store/routes/product.js'));
+// app.use('/order', require('./store/routes/order.js'));
 
 app.listen(PORT, () => {
   app.use('/', require('./customer/routes/shop.js'));
-  console.log(`listening at http://localhost:${PORT}`);
+  console.log(`Listening on ${PORT}`);
 });
 
 // app.use('/about', require('./routes/about.js'));
