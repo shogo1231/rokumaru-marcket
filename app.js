@@ -37,7 +37,7 @@ app.use(session({
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// ルーティングの設定
+// ルーティングの設定 
 // app.use('/', require('./routes/index.js'));
 // app.use('/', require('./customer/routes/shop.js'));
 // app.use('/staff', require('./store/routes/staff.js'));
