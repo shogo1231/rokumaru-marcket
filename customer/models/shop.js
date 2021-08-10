@@ -195,10 +195,10 @@ module.exports.getProductData = async function (req, res) {
   // DB接続
   let connection = mysql.createPool({
     host : 'us-cdbr-east-04.cleardb.com',
-    user : 'b24afcead44e01',
-    password : 'c4a2d0d1',
+    user : 'bd9097b5094aa6',
+    password : 'e06a3bc0',
     port : 3306,
-    database : 'heroku_7464a44833ab4f0'
+    database : 'heroku_aeab7196c54ceac'
   });
   // let test = require('./database.js');
   // let connection = await mysql.createPool({ test });
