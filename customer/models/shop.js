@@ -822,7 +822,7 @@ module.exports.dat_search = async function(req,res) {
 
   let a;
   // DB接続
-  let connection = mysql.createConnection({
+  let connection = mysql.createPool({
     host : 'us-cdbr-east-04.cleardb.com',
     user : 'bd9097b5094aa6',
     password : 'e06a3bc0',
