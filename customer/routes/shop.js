@@ -510,10 +510,11 @@ router.post('/member_login_check', async function(req, res) {
     // });
 
     // 切断
-    connection.end((err) => {
-      if (err) throw err;
-      console.log('切断 to mysql');
-    });
+    connection.destroy();
+    // connection.end((err) => {
+    //   if (err) throw err;
+    //   console.log('切断 to mysql');
+    // });
 
     res.send('200');
   }
@@ -567,10 +568,11 @@ router.get('/shop_kantan_check', async function(req, res) {
         return data;
       });
       // 切断
-      connection.end((err) => {
-        if (err) throw err;
-        console.log('切断 to mysql');
-      });
+      connection.destroy();
+      // connection.end((err) => {
+      //   if (err) throw err;
+      //   console.log('切断 to mysql');
+      // });
     }
     catch (err) {
       throw new Error(err)
