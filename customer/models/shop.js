@@ -226,7 +226,7 @@ module.exports.getProductData = async function (req, res) {
         console.log(err);
         throw err;
       }
-      console.log('切断 to mysql');
+      console.log('切断 to mysql getproductData');
     });
   }
   catch (err) {
