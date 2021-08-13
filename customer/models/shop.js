@@ -76,10 +76,11 @@ module.exports.ref = async function(req, res, code){
       return data;
     });
     // 切断
-    connection.end((err) => {
-      if (err) throw err;
-      console.log('切断 to mysql');
-    });
+    connection.destroy();
+    // connection.end((err) => {
+    //   if (err) throw err;
+    //   console.log('切断 to mysql');
+    // });
   }
   catch (err) {
     throw new Error(err)
@@ -115,10 +116,11 @@ module.exports.product = async function(req, res){
   });
 
   // 切断
-  connection.end((err) => {
-    if (err) throw err;
-    console.log('切断 to mysql');
-  });
+  connection.destroy();
+  // connection.end((err) => {
+  //   if (err) throw err;
+  //   console.log('切断 to mysql');
+  // });
 }
 
 module.exports.update = function(req, res){
@@ -150,10 +152,11 @@ module.exports.update = function(req, res){
     if (err) throw err;
 
     // 切断
-    connection.end((err) => {
-      if (err) throw err;
-        console.log('切断 to mysql');
-      });
+    connection.destroy();
+    // connection.end((err) => {
+    //   if (err) throw err;
+    //     console.log('切断 to mysql');
+    //   });
     });
     return product_data;
 };
@@ -177,10 +180,11 @@ module.exports.deleteData = function (req, res) {
     if (err) throw err;
 
     // 切断
-    connection.end((err) => {
-      if (err) throw err;
-        console.log('切断 to mysql');
-      });
+    connection.destroy();
+    // connection.end((err) => {
+    //   if (err) throw err;
+    //     console.log('切断 to mysql');
+    //   });
     });
     a='削除しました。';
   }
@@ -267,10 +271,11 @@ module.exports.getProductOneData = async function(req,res) {
       return data;
     });
     // 切断
-    connection.end((err) => {
-      if (err) throw err;
-      console.log('切断 to mysql データ取得');
-    });
+    connection.destroy();
+    // connection.end((err) => {
+    //   if (err) throw err;
+    //   console.log('切断 to mysql データ取得');
+    // });
   }
   catch (err) {
     throw new Error(err)
@@ -308,10 +313,11 @@ module.exports.editSessionPrice = async function (req, res) {
       req.session.price += result[0].price * kazu[i];
     };
     // 切断
-    connection.end((err) => {
-      if (err) throw err;
-      console.log('切断 to mysql データ取得');
-    });
+    connection.destroy();
+    // connection.end((err) => {
+    //   if (err) throw err;
+    //   console.log('切断 to mysql データ取得');
+    // });
   }
   catch (err) {
     throw new Error(err)
@@ -378,6 +384,7 @@ module.exports.cartin = async function(req,res) {
       }
     }
     // 切断
+    connection.destroy();
     // connection.end((err) => {
     //   if (err) throw err;
     //   console.log('切断 to mysql データ取得');
@@ -442,6 +449,7 @@ module.exports.delCartProduct = async function(req,res) {
       });
     }
     // 切断
+    connection.destroy();
     // connection.end((err) => {
     //   if (err) throw err;
     //   console.log('切断 to mysql データ取得');
@@ -492,10 +500,11 @@ module.exports.getList = async function(req,res) {
     };
     // });
     // 切断
-    connection.end((err) => {
-      if (err) throw err;
-      console.log('切断 to mysql');
-    });
+    connection.destroy();
+    // connection.end((err) => {
+    //   if (err) throw err;
+    //   console.log('切断 to mysql');
+    // });
   }
   catch (err) {
     throw new Error(err)
@@ -617,10 +626,11 @@ module.exports.dat_sales = async function(req, res) {
     }
 
     // 切断
-    connection.end((err) => {
-      if (err) throw err;
-      console.log('切断 to mysql');
-    });
+    connection.destroy();
+    // connection.end((err) => {
+    //   if (err) throw err;
+    //   console.log('切断 to mysql');
+    // });
   }  
   catch (err) {
     throw new Error(err)
@@ -675,10 +685,11 @@ module.exports.dat_sales_product = async function(req, lastcode) {
     };
 
     // 切断
-    connection.end((err) => {
-      if (err) throw err;
-      console.log('切断 to mysql');
-    });
+    connection.destroy();
+    // connection.end((err) => {
+    //   if (err) throw err;
+    //   console.log('切断 to mysql');
+    // });
   }
   catch (err) {
     throw new Error(err)
@@ -718,11 +729,12 @@ module.exports.reset_cartin = async function(req, res) {
       connection.query('UPDATE cart set ? WHERE memberCode = ?', [addData, req.session.code], (err) => {
         if (err) throw err;
       });
-      // 切断
-      connection.end((err) => {
-        if (err) throw err;
-        console.log('切断 to mysql');
-      });
+    // 切断
+    connection.destroy();
+      // connection.end((err) => {
+      //   if (err) throw err;
+      //   console.log('切断 to mysql');
+      // });
     }
     catch (err) {
       throw new Error(err)
@@ -755,11 +767,12 @@ module.exports.changeCartKazu = async function(req, res) {
       connection.query('UPDATE cart set ? WHERE memberCode = ?', [addData, req.session.code], (err) => {
         if (err) throw err;
       });
-      // 切断
-      connection.end((err) => {
-        if (err) throw err;
-        console.log('切断 to mysql');
-      });
+    // 切断
+    connection.destroy();
+    // connection.end((err) => {
+    //   if (err) throw err;
+    //   console.log('切断 to mysql');
+    // });
     }
     catch (err) {
       throw new Error(err)
@@ -804,10 +817,11 @@ module.exports.dat_member = async function(req, res) {
     });  
 
     // 切断
-    connection.end((err) => {
-      if (err) throw err;
-      console.log('切断 to mysql');
-    });
+    connection.destroy();
+    // connection.end((err) => {
+    //   if (err) throw err;
+    //   console.log('切断 to mysql');
+    // });
   }  
   catch (err) {
     throw new Error(err)
@@ -822,7 +836,7 @@ module.exports.dat_search = async function(req,res) {
 
   let a;
   // DB接続
-  let connection = mysql.createPool({
+  let connection = mysql.createConnection({
     host : 'us-cdbr-east-04.cleardb.com',
     user : 'bd9097b5094aa6',
     password : 'e06a3bc0',
@@ -846,10 +860,12 @@ module.exports.dat_search = async function(req,res) {
       return data;
     });
     // 切断
-    connection.end((err) => {
-      if (err) throw err;
-      console.log('切断 to mysql データ取得');
-    });
+    connection.destroy();
+
+    // connection.end((err) => {
+    //   if (err) throw err;
+    //   console.log('切断 to mysql データ取得');
+    // });
   }
   catch (err) {
     throw new Error(err)
@@ -890,11 +906,12 @@ module.exports.getWishlistData =async function (req, res) {
           return data;
         }
       });
-      // 切断
-      connection.end((err) => {
-        if (err) throw err;
-        console.log('切断 to mysql');
-      });
+    // 切断
+    connection.destroy();
+    // connection.end((err) => {
+    //   if (err) throw err;
+    //   console.log('切断 to mysql');
+    // });
     }
     catch (err) {
       throw new Error(err)
@@ -939,10 +956,11 @@ module.exports.getUserData = async function(req, res) {
     result.birth = row.birth;
   });
   // 切断
-  connection.end((err) => {
-    if (err) throw err;
-    console.log('切断 to mysql データ取得');
-  });
+  connection.destroy();
+  // connection.end((err) => {
+  //   if (err) throw err;
+  //   console.log('切断 to mysql データ取得');
+  // });
 
   return result;
 }
@@ -990,10 +1008,11 @@ module.exports.getUserData = async function(req, res) {
   });  
 
   // 切断
-  connection.end((err) => {
-    if (err) throw err;
-    console.log('切断 to mysql');
-  });
+  connection.destroy();
+  // connection.end((err) => {
+  //   if (err) throw err;
+  //   console.log('切断 to mysql');
+  // });
 
   let result = 'ok';
   return result;
