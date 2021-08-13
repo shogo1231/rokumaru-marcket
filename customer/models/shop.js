@@ -221,13 +221,15 @@ module.exports.getProductData = async function (req, res) {
       return data;
     });
     // 切断
-    connection.end((err) => {
-      if (err) {
-        console.log(err);
-        throw err;
-      }
-      console.log('切断 to mysql getproductData');
-    });
+    connection.destroy();
+
+    // connection.end((err) => {
+    //   if (err) {
+    //     console.log(err);
+    //     throw err;
+    //   }
+    //   console.log('切断 to mysql getproductData');
+    // });
   }
   catch (err) {
     throw new Error(err)
