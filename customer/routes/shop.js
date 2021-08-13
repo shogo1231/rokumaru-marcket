@@ -427,7 +427,7 @@ router.get('/login', function(req, res) {
   let token = ""
   
   // ログイン画面が遷移元の場合、Cookie取得
-  if(req.header('Referer') === 'http://localhost:3001/login' ) {
+  if(req.header('Referer') === 'https://fresh-marcket.herokuapp.com/login' ) {
     token = req.cookies.key;
   }
 
@@ -445,12 +445,12 @@ router.post('/member_login_check', async function(req, res) {
   req.session.address = address;
 
   // DB接続
-  let connection = mysql.createPool({
+  let connection = mysql.createConnection({
     host : 'us-cdbr-east-04.cleardb.com',
-    user : 'b24afcead44e01',
-    password : 'c4a2d0d1',
+    user : 'bd9097b5094aa6',
+    password : 'e06a3bc0',
     port : 3306,
-    database : 'heroku_7464a44833ab4f0'
+    database : 'heroku_aeab7196c54ceac'
   });
 
   // connection.connect(); ここ不要
@@ -540,14 +540,14 @@ router.get('/shop_kantan_check', async function(req, res) {
     let search = req.session.search;
 
     // DB接続
-    let connection = mysql.createPool({
+    let connection = mysql.createConnection({
       host : 'us-cdbr-east-04.cleardb.com',
-      user : 'b24afcead44e01',
-      password : 'c4a2d0d1',
+      user : 'bd9097b5094aa6',
+      password : 'e06a3bc0',
       port : 3306,
-      database : 'heroku_7464a44833ab4f0'
+      database : 'heroku_aeab7196c54ceac'
     });
-        
+          
     // connection.connect(); ここ不要
     // この行がポイント！ queryが非同期だからここの処理が完了するまでreturnに進まないようにしている？
     connection.query = util.promisify(connection.query)
