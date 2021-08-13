@@ -222,7 +222,10 @@ module.exports.getProductData = async function (req, res) {
     });
     // 切断
     connection.end((err) => {
-      if (err) throw err;
+      if (err) {
+        console.log(err);
+        throw err;
+      }
       console.log('切断 to mysql');
     });
   }
